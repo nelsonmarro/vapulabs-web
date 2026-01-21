@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feFlood flood-color="#10b981" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Centered Branding -->
+  <g transform="translate(30, 230)">
+    <text x="0" y="60" font-family="Arial, sans-serif" font-weight="bold" font-size="95" letter-spacing="-6" fill="#ffffff">Naph</text>
+    <text x="225" y="60" font-family="Arial, sans-serif" font-weight="bold" font-size="95" letter-spacing="-6" fill="#10b981">Soft</text>
+    <circle cx="435" cy="40" r="12" fill="#10b981" filter="url(#glow)" />
+  </g>
+</svg>

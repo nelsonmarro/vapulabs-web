@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer components {
+    .glow-text {
+        text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    }
+    
+    .animate-gradient-x {
+        background-size: 200% 200%;
+        animation: gradient-x 3s ease infinite;
+    }
+
+    @keyframes gradient-x {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+}

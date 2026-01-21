@@ -1,0 +1,59 @@
+package products
+
+templ PricingView(basicMonthly, basicAnnual, pymeMonthly, pymeAnnual, corpMonthly, corpAnnual string) {
+	<div class="relative pt-20 pb-20 min-h-screen">
+		<!-- Background Elements -->
+		<div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-emerald-900/20 to-transparent pointer-events-none"></div>
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Header -->
+			<div class="text-center max-w-3xl mx-auto mb-12">
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Planes diseñados para <span class="text-vapula-neon glow-text">crecer contigo</span></h1>
+				<p class="text-xl text-gray-400 mb-8">
+					Elige la suscripción que mejor se adapte al tamaño de tu negocio. Todos los planes incluyen actualizaciones automáticas, soporte técnico y facturación ilimitada.
+				</p>
+				<!-- Free Trial CTA -->
+				<div class="inline-flex items-center bg-darkbg-900 border border-vapula-neon/30 rounded-full px-6 py-2 mb-8 animate-fade-in-up">
+					<span class="text-vapula-neon font-bold mr-3">¿No estás seguro?</span>
+					<span class="text-gray-400 text-sm mr-4">Prueba Verith gratis por 15 días.</span>
+					<a href="/products/verith/download" class="text-white hover:text-vapula-neon font-bold underline transition-colors">
+						Descargar ahora &rarr;
+					</a>
+				</div>
+			</div>
+			<!-- Billing Toggle & Pricing Cards (Backend Driven) -->
+			@PricingGrid(false, basicMonthly, pymeMonthly, corpMonthly)
+			<!-- Why Verith & Features (Simplified) -->
+			<div class="bg-darkbg-900 border border-white/5 rounded-3xl p-10 mb-20 max-w-5xl mx-auto">
+				<h2 class="text-2xl font-bold text-white mb-6 text-center">Todos los planes incluyen el poder de Verith</h2>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm text-gray-400">
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Facturación Ilimitada</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Control de Inventarios</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Reportes PDF/Excel</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Respaldo Local Seguro</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Modo Offline</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Actualizaciones Gratis</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Multi-Caja</div>
+					<div class="flex items-center"><span class="text-vapula-neon mr-2">✓</span> Gestión de Gastos</div>
+				</div>
+			</div>
+			<!-- FAQ -->
+			<div class="max-w-3xl mx-auto">
+				<h2 class="text-3xl font-bold text-white mb-8 text-center">💡 ¿Tienes dudas?</h2>
+				<div class="space-y-6">
+					<div class="bg-white/5 rounded-xl p-6">
+						<h5 class="text-lg font-bold text-white mb-2">¿Qué pasa si abro un nuevo local?</h5>
+						<p class="text-gray-400 text-sm">Puedes actualizar tu plan en cualquier momento desde tu panel de cliente en Lemon Squeezy. Solo pagas la diferencia prorrateada y tus nuevos equipos podrán usar la misma licencia al instante.</p>
+					</div>
+					<div class="bg-white/5 rounded-xl p-6">
+						<h5 class="text-lg font-bold text-white mb-2">¿Las computadoras deben estar en la misma red?</h5>
+						<p class="text-gray-400 text-sm">No. Como Verith es una aplicación de escritorio local, cada PC funciona de forma independiente. La licencia solo controla en cuántos equipos puedes instalar y activar el software legalmente. La sincronización de datos entre sucursales se maneja aparte si la requieres.</p>
+					</div>
+					<div class="bg-white/5 rounded-xl p-6">
+						<h5 class="text-lg font-bold text-white mb-2">¿Puedo cancelar en cualquier momento?</h5>
+						<p class="text-gray-400 text-sm">Sí, no hay contratos forzosos. Cancelas y mantienes acceso hasta que termine tu mes/año pagado.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

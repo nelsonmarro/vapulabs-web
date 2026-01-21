@@ -1,0 +1,16 @@
+package pages
+
+import (
+	"github.com/nelsonmarro/vapulabs-web/templates"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/header"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/footer"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/products"
+)
+
+templ Download(title string) {
+	@templates.MainLayout(title + " | Descarga") {
+		@header.Header()
+		@products.DownloadView()
+		@footer.Footer()
+	}
+}

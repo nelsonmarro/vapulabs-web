@@ -1,0 +1,142 @@
+package products
+
+templ PricingGrid(isAnnual bool, basicLink, pymeLink, corpLink string) {
+	<div id="pricing-grid" class="w-full" data-effect="window.setupLemonSqueezy()">
+		<!-- Billing Toggle (Backend Driven) -->
+		<div class="flex justify-center mb-16">
+			<div class="bg-darkbg-900 border border-white/10 p-1 rounded-full flex relative shadow-lg w-64">
+				<div class={ "absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-vapula-neon rounded-full transition-all duration-300 z-0", 
+                     templ.KV("translate-x-full", isAnnual), templ.KV("translate-x-0", !isAnnual) }></div>
+				
+				<button type="button" 
+                        class={ "relative z-10 w-1/2 py-2 rounded-full text-sm font-bold transition-colors duration-300 focus:outline-none cursor-pointer",
+                        templ.KV("text-black", !isAnnual), templ.KV("text-gray-400 hover:text-white", isAnnual) }
+                        data-on:click="@get('/products/verith/pricing/view?annual=false')">
+					Mensual
+				</button>
+				
+				<button type="button"
+                        class={ "relative z-10 w-1/2 py-2 rounded-full text-sm font-bold transition-colors duration-300 flex items-center justify-center focus:outline-none cursor-pointer",
+                        templ.KV("text-black", isAnnual), templ.KV("text-gray-400 hover:text-white", !isAnnual) }
+                        data-on:click="@get('/products/verith/pricing/view?annual=true')">
+					Anual <span class="ml-1 text-[9px] bg-vapula-copper text-white px-1.5 py-0.5 rounded-full">-17%</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- Pricing Cards -->
+		<div class="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20 items-center">
+			
+			<!-- Basic Plan -->
+			<div class="bg-darkbg-900 border border-white/10 rounded-3xl p-6 hover:border-vapula-neon/30 transition-all duration-300 relative group h-full flex flex-col">
+				<h3 class="text-xl font-bold text-white mb-2 text-vapula-neon">Plan Básico</h3>
+				<p class="text-sm text-gray-400 mb-4 h-10">Ideal para freelancers, consultores y negocios de un solo punto.</p>
+				<div class="mb-6">
+					<span class="text-3xl font-bold text-white">
+                        if isAnnual {
+                            $99.00
+                        } else {
+                            $9.99
+                        }
+                    </span>
+					<span class="text-gray-500 text-sm">
+                        if isAnnual {
+                            / año
+                        } else {
+                            / mes
+                        }
+                    </span>
+					<div class={ "text-xs text-vapula-neon mt-1 transition-opacity duration-300", templ.KV("opacity-100", isAnnual), templ.KV("opacity-0", !isAnnual) }>
+						Ahorras $20.88
+					</div>
+				</div>
+				
+				<ul class="space-y-3 mb-8 flex-1">
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> 1 Puesto de Trabajo</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Facturación SRI Ilimitada</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Reportes y Reconciliación</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Soporte por Email</li>
+				</ul>
+
+				<a href={ templ.SafeURL(basicLink) } class="lemonsqueezy-button block w-full py-3 bg-transparent border border-gray-600 hover:border-vapula-neon text-gray-300 hover:text-vapula-neon font-bold text-center rounded-xl transition-all duration-300 text-sm">
+					Elegir Básico
+				</a>
+			</div>
+
+			<!-- PYME Plan -->
+			<div class="bg-darkbg-900 border border-vapula-neon rounded-3xl p-8 shadow-[0_0_30px_rgba(16,185,129,0.15)] relative transform md:-translate-y-4 h-full flex flex-col z-10">
+				<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-vapula-neon to-transparent"></div>
+				<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-vapula-neon text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Más Popular</div>
+				
+				<h3 class="text-2xl font-bold text-white mb-2 text-vapula-neon">Plan PYME</h3>
+				<p class="text-sm text-gray-300 mb-4 h-10">Perfecto para negocios con sucursales o múltiples cajas.</p>
+				<div class="mb-6">
+					<span class="text-4xl font-bold text-white">
+                        if isAnnual {
+                            $199.00
+                        } else {
+                            $19.99
+                        }
+                    </span>
+					<span class="text-gray-500 text-sm">
+                        if isAnnual {
+                            / año
+                        } else {
+                            / mes
+                        }
+                    </span>
+					<div class={ "text-xs text-vapula-neon mt-1 transition-opacity duration-300", templ.KV("opacity-100", isAnnual), templ.KV("opacity-0", !isAnnual) }>
+						Ahorras $40.88
+					</div>
+				</div>
+				
+				<ul class="space-y-3 mb-8 flex-1">
+					<li class="flex items-start text-sm text-white font-medium"><span class="mr-2 text-vapula-neon">🔥</span> Hasta 3 Puestos de Trabajo</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Todo lo del plan Básico</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Gestión centralizada</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-neon">✅</span> Soporte Prioritario</li>
+				</ul>
+
+				<a href={ templ.SafeURL(pymeLink) } class="lemonsqueezy-button block w-full py-4 bg-vapula-neon hover:bg-emerald-500 text-black font-bold text-center rounded-xl transition-all duration-300 shadow-lg hover:shadow-vapula-neon/50">
+					Elegir PYME
+				</a>
+			</div>
+
+			<!-- Corporate Plan -->
+			<div class="bg-darkbg-900 border border-white/10 rounded-3xl p-6 hover:border-vapula-copper/50 transition-all duration-300 relative group h-full flex flex-col">
+				<h3 class="text-xl font-bold text-white mb-2 text-vapula-copper">Corporativo</h3>
+				<p class="text-sm text-gray-400 mb-4 h-10">Para empresas consolidadas con alta operatividad.</p>
+				<div class="mb-6">
+					<span class="text-3xl font-bold text-white">
+                        if isAnnual {
+                            $499.00
+                        } else {
+                            $49.99
+                        }
+                    </span>
+					<span class="text-gray-500 text-sm">
+                        if isAnnual {
+                            / año
+                        } else {
+                            / mes
+                        }
+                    </span>
+					<div class={ "text-xs text-vapula-copper mt-1 transition-opacity duration-300", templ.KV("opacity-100", isAnnual), templ.KV("opacity-0", !isAnnual) }>
+						Ahorras $100.88
+					</div>
+				</div>
+				
+				<ul class="space-y-3 mb-8 flex-1">
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-copper">🏢</span> Hasta 10 Puestos de Trabajo</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-copper">✅</span> Todo lo del plan PYME</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-copper">✅</span> Asesoría migración</li>
+					<li class="flex items-start text-sm text-gray-300"><span class="mr-2 text-vapula-copper">✅</span> Soporte VIP</li>
+				</ul>
+
+				<a href={ templ.SafeURL(corpLink) } class="lemonsqueezy-button block w-full py-3 bg-transparent border border-vapula-copper text-vapula-copper hover:bg-vapula-copper hover:text-white font-bold text-center rounded-xl transition-all duration-300 text-sm copper-glow">
+					Elegir Corporativo
+				</a>
+			</div>
+		</div>
+	</div>
+}

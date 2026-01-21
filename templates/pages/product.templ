@@ -1,0 +1,16 @@
+package pages
+
+import (
+	"github.com/nelsonmarro/vapulabs-web/templates"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/header"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/footer"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/products"
+)
+
+templ ProductDetail(title, subtitle, price string, features []string, images []string, isDiscount bool, discountPrice string) {
+	@templates.MainLayout(title + " | NaphSoft") {
+		@header.Header()
+		@products.DetailView(title, subtitle, price, features, images, isDiscount, discountPrice)
+		@footer.Footer()
+	}
+}

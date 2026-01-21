@@ -1,0 +1,24 @@
+package pages
+
+import (
+    "github.com/nelsonmarro/vapulabs-web/templates"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/header"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/hero"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/about"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/services"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/products"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/contact"
+    "github.com/nelsonmarro/vapulabs-web/templates/components/footer"
+)
+
+templ Home() {
+    @templates.MainLayout("NaphSoft | Ingeniería de Software") {
+        @header.Header()
+        @hero.Hero()
+        @about.Manifesto()
+        @services.Services()
+        @products.Products()
+        @contact.Contact()
+        @footer.Footer()
+    }
+}

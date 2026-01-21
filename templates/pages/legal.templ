@@ -1,0 +1,52 @@
+package pages
+
+import (
+	"github.com/nelsonmarro/vapulabs-web/templates"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/header"
+	"github.com/nelsonmarro/vapulabs-web/templates/components/footer"
+)
+
+templ LegalPage(title string, content templ.Component) {
+	@templates.MainLayout(title + " | Vapulabs") {
+		@header.Header()
+		<div class="relative pt-20 pb-20 min-h-screen">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h1 class="text-4xl font-bold text-white mb-12 border-b border-white/5 pb-6">{ title }</h1>
+                <div class="prose prose-invert prose-emerald max-w-none text-gray-400 leading-relaxed space-y-6">
+                    @content
+                </div>
+            </div>
+        </div>
+		@footer.Footer()
+	}
+}
+
+templ PrivacyContent() {
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">1. Compromiso de Privacidad Local</h2>
+        <p>Verith ha sido diseñada bajo el principio de "Privacidad por Diseño". A diferencia de los sistemas contables en la nube, Verith almacena toda tu información financiera localmente en tu dispositivo.</p>
+    </section>
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">2. Datos Recolectados</h2>
+        <p>Solo recolectamos la información estrictamente necesaria para la gestión de tu licencia a través de nuestro procesador de pagos Lemon Squeezy (Nombre, Correo electrónico y datos de facturación).</p>
+    </section>
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">3. Seguridad</h2>
+        <p>Tú eres el único guardián de tus datos contables. Recomendamos realizar copias de seguridad periódicas de tu base de datos local.</p>
+    </section>
+}
+
+templ TermsContent() {
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">1. Identificación</h2>
+        <p>En cumplimiento con el deber de información, se hace constar que el sitio web naphsoft.dev y el software Verith son propiedad de NaphSoft.</p>
+    </section>
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">2. Propiedad Intelectual</h2>
+        <p>Todo el código, diseño y algoritmos de Verith son propiedad exclusiva de NaphSoft. La compra de una licencia otorga un derecho de uso según el plan adquirido.</p>
+    </section>
+    <section>
+        <h2 class="text-white text-2xl font-bold mb-4">3. Responsabilidad</h2>
+        <p>NaphSoft no se hace responsable del uso indebido del software o de la pérdida de datos por fallos en el hardware del usuario.</p>
+    </section>
+}

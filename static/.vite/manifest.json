@@ -1,0 +1,17 @@
+{
+  "assets/css/input.css": {
+    "file": "assets/style.css",
+    "src": "assets/css/input.css",
+    "isEntry": true,
+    "name": "style",
+    "names": [
+      "style.css"
+    ]
+  },
+  "assets/js/main.ts": {
+    "file": "assets/main.js",
+    "name": "main",
+    "src": "assets/js/main.ts",
+    "isEntry": true
+  }
+}
