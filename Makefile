@@ -7,7 +7,7 @@ help:
 
 run:
 	@echo "Starting web application with air..."
-	@RESEND_API_KEY=re_NZvsQjJ2_HQws5BB5hUpachdkcJtxGv75 CONTACT_EMAIL=nelsonmarro99@gmail.com air
+	@air
 
 build:
 	@echo "Generating templ files and compiling Go application..."
