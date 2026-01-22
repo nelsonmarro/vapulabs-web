@@ -1,57 +1,55 @@
 package hero
 
 templ Hero() {
-    <section id="inicio" class="relative py-20 overflow-hidden flex items-center min-h-screen">
-        <div class="absolute inset-0 bg-darkbg-950">
-            <div class="absolute inset-0 bg-gradient-to-b from-darkbg-950 via-darkbg-900/50 to-darkbg-950 opacity-80"></div>
-            <!-- Animated Background Glow -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vapula-neon/5 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10 text-center -mt-20 md:-mt-32">
-            <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 animate-fade-in">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-vapula-neon opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-vapula-neon"></span>
-                </span>
-                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">Software de alta precisión</span>
-            </div>
-
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight leading-tight min-h-[2.5em] md:min-h-[auto]">
-                Forjamos Sistemas que <br/>
-                <span id="typed-text" class="bg-clip-text text-transparent bg-gradient-to-r from-vapula-neon via-emerald-400 to-teal-500 glow-text"></span>
-            </h1>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    new Typed('#typed-text', {
-                        strings: [
-                            'Dominan el Mercado.',
-                            'Escalan sin Límites.',
-                            'Protegen tus Datos.',
-                            'Redefinen la Eficiencia.',
-                            'Forjan el Futuro.'
-                        ],
-                        typeSpeed: 50,
-                        backSpeed: 30,
-                        backDelay: 2000,
-                        loop: true,
-                        cursorChar: '_',
-                        autoInsertCss: true,
-                    });
-                });
-            </script>
-            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                No solo escribimos código; construimos motores de crecimiento. Desatamos el potencial de tu negocio con arquitecturas robustas, seguras y una ejecución técnica impecable.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#contacto" class="px-10 py-4 bg-vapula-neon text-darkbg-950 font-bold text-lg rounded-xl hover:bg-emerald-300 transition-all duration-300 shadow-[0_0_10px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
-                    Iniciar Proyecto
-                </a>
-                <a href="#aplicaciones" class="px-10 py-4 bg-transparent border border-vapula-copper text-vapula-copper font-bold text-lg rounded-xl hover:bg-vapula-copper/10 hover:border-amber-500 hover:text-amber-500 transition-all duration-300 shadow-none hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-                    Ver Productos
-                </a>
-            </div>
-        </div>
-    </section>
+	<section id="inicio" class="relative py-20 overflow-hidden flex items-center min-h-screen">
+		<div class="absolute inset-0 bg-darkbg-950">
+			<div class="absolute inset-0 bg-gradient-to-b from-darkbg-950 via-darkbg-900/50 to-darkbg-950 opacity-80"></div>
+			<!-- Animated Background Glow -->
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vapula-neon/5 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+		</div>
+		<div class="container mx-auto px-6 relative z-10 text-center -mt-20 md:-mt-32">
+			<div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 animate-fade-in">
+				<span class="relative flex h-2 w-2">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-vapula-neon opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-2 w-2 bg-vapula-neon"></span>
+				</span>
+				<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">Software de alta precisión</span>
+			</div>
+			<h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight leading-tight min-h-[2.5em] md:min-h-[auto]">
+				Forjamos Sistemas que 
+				<br/>
+				<span id="typed-text" class="bg-clip-text text-transparent bg-gradient-to-r from-vapula-neon via-emerald-400 to-teal-500 glow-text"></span>
+			</h1>
+			<script>
+				document.addEventListener("DOMContentLoaded", () => {
+					new Typed("#typed-text", {
+						strings: [
+							"Dominan el Mercado.",
+							"Escalan sin Límites.",
+							"Protegen tus Datos.",
+							"Redefinen la Eficiencia.",
+							"Forjan el Futuro.",
+						],
+						typeSpeed: 50,
+						backSpeed: 30,
+						backDelay: 2000,
+						loop: true,
+						cursorChar: "_",
+						autoInsertCss: true,
+					});
+				});
+			</script>
+			<p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+				No solo escribimos código; construimos motores de crecimiento. Desatamos el potencial de tu negocio con arquitecturas robustas, seguras y una ejecución técnica impecable.
+			</p>
+			<div class="flex flex-col sm:flex-row justify-center gap-6">
+				<a href="#contacto" class="px-10 py-4 bg-vapula-neon text-darkbg-950 font-bold text-lg rounded-xl hover:bg-emerald-300 transition-all duration-300 shadow-[0_0_10px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+					Iniciar Proyecto
+				</a>
+				<a href="#aplicaciones" class="px-10 py-4 bg-transparent border border-vapula-copper text-vapula-copper font-bold text-lg rounded-xl hover:bg-vapula-copper/10 hover:border-amber-500 hover:text-amber-500 transition-all duration-300 shadow-none hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
+					Ver Productos
+				</a>
+			</div>
+		</div>
+	</section>
 }

@@ -10,6 +10,8 @@ run:
 	@air
 
 build:
-	@echo "Generating templ files and compiling Go application..."
-	@templ generate
-	@go build -o ./bin/server ./cmd/web/main.go
+	@echo "Generando assets y compilando para Linux..."
+	npm run build:css
+	npm run build:js
+	templ generate
+	GOOS=linux GOARCH=amd64 go build -o bin/server ./cmd/web/main.go

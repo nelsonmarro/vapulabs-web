@@ -12,5 +12,17 @@ templ Download(title string) {
 		@header.Header()
 		@products.DownloadView()
 		@footer.Footer()
+		<script>
+            window.onload = function() {
+                setTimeout(function() {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = '/static/downloads/Verith_Setup.zip';
+                    downloadLink.download = 'Verith_Setup.zip';
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                }, 1500);
+            };
+        </script>
 	}
 }

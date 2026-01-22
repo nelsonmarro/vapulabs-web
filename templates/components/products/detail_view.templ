@@ -67,6 +67,22 @@ templ DetailView(title, subtitle, price string, features []string, images []stri
 							<li><strong class="text-vapula-copper">🔒 Tus Datos son TUYOS:</strong> Base de datos local, segura y privada</li>
 							<li><strong class="text-vapula-copper">📄 Reportes Listos:</strong> Exporta a PDF o Excel en segundos para tu contador.</li>
 						</ul>
+
+						<!-- Documentation Card -->
+						<div class="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between group hover:border-vapula-neon/30 transition-all duration-300">
+							<div class="flex items-center space-x-4">
+								<div class="p-3 rounded-xl bg-vapula-neon/10 text-vapula-neon">
+									<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+								</div>
+								<div>
+									<h4 class="text-white font-bold">¿Tienes dudas técnicas?</h4>
+									<p class="text-xs text-gray-500">Explora guías detalladas sobre instalación y firma electrónica.</p>
+								</div>
+							</div>
+							<a href="https://docs.verith.naphsoft.dev" target="_blank" class="px-4 py-2 bg-darkbg-950 border border-white/10 text-white text-xs font-bold rounded-lg hover:border-vapula-neon transition-all">
+								Ir a Docs
+							</a>
+						</div>
 					</div>
 				</div>
 								<!-- Right Column: Info & Purchase -->
@@ -99,6 +115,10 @@ templ DetailView(title, subtitle, price string, features []string, images []stri
 									<span>Comprar Licencia</span>
 								</a>
 							</div>
+							<a href="https://docs.verith.naphsoft.dev" target="_blank" class="w-full py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center group">
+								<svg class="w-4 h-4 mr-2 text-gray-500 group-hover:text-vapula-neon transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+								Ver Manual de Usuario
+							</a>
 							<p class="text-center text-xs text-gray-500">Pago seguro procesado por Lemon Squeezy</p>
 						</div>
 					</div>

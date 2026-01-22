@@ -3,6 +3,7 @@ package server
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -16,7 +17,11 @@ func (s *Server) getRoutes() http.Handler {
 	mux.Use(middleware.Recoverer)
 
 	// Static files
-	fs := http.FileServer(http.Dir("./static"))
+	staticDir := os.Getenv("STATIC_DIR")
+	if staticDir == "" {
+		staticDir = "./static"
+	}
+	fs := http.FileServer(http.Dir(staticDir))
 	mux.Handle("/static/*", http.StripPrefix("/static/", fs))
 
 	// Handlers

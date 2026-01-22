@@ -68,6 +68,10 @@ func Download(title string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, " <script>\n            window.onload = function() {\n                setTimeout(function() {\n                    const downloadLink = document.createElement('a');\n                    downloadLink.href = '/static/downloads/Verith_Setup.zip';\n                    downloadLink.download = 'Verith_Setup.zip';\n                    document.body.appendChild(downloadLink);\n                    downloadLink.click();\n                    document.body.removeChild(downloadLink);\n                }, 1500);\n            };\n        </script>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 			return nil
 		})
 		templ_7745c5c3_Err = templates.MainLayout(title+" | Descarga").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
