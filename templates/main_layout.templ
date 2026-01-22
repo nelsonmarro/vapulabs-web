@@ -44,7 +44,11 @@ templ MainLayout(title string) {
             </script>
 			<script type="module" src="/static/js/main.js"></script> 
 		</head>
-		<body class="bg-darkbg-950 text-gray-300 font-sans leading-relaxed antialiased selection:bg-vapula-neon selection:text-black">
+		<body 
+			class="bg-darkbg-950 text-gray-300 font-sans leading-relaxed antialiased selection:bg-vapula-neon selection:text-black"
+			data-signals='{"isMobileMenuOpen": false}'
+			data-class='{"overflow-hidden": $isMobileMenuOpen}'
+		>
 			{ children... }
 		</body>
 	</html>
