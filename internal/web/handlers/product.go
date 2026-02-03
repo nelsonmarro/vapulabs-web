@@ -9,6 +9,16 @@ import (
 	"github.com/starfederation/datastar-go/datastar"
 )
 
+// Pricing Constants
+const (
+	VerithBasicMonthlyURL = "https://naphsoft.lemonsqueezy.com/checkout/buy/4e2796d6-5976-4613-a096-a1e86d3dda65?enabled=1240057"
+	VerithBasicAnnualURL  = "https://naphsoft.lemonsqueezy.com/checkout/buy/b3497c54-7537-405f-a8b7-93df23abfbc7?enabled=1240020"
+	VerithPymeMonthlyURL  = "https://naphsoft.lemonsqueezy.com/checkout/buy/ca111c39-dd50-481b-bb4e-8b3ec82c8690?enabled=1240479"
+	VerithPymeAnnualURL   = "https://naphsoft.lemonsqueezy.com/checkout/buy/117a8e15-43a0-41f8-bd5e-6fefa01e9da2?enabled=1240480"
+	VerithCorpMonthlyURL  = "https://naphsoft.lemonsqueezy.com/checkout/buy/4d70c256-8929-42b0-ad65-5a9248fd7517?enabled=1240476"
+	VerithCorpAnnualURL   = "https://naphsoft.lemonsqueezy.com/checkout/buy/8ec06653-43b4-4dc4-8404-5002993e2058?enabled=1240477"
+)
+
 type ProductHandler struct{}
 
 func NewProductHandler() *ProductHandler {
@@ -40,13 +50,13 @@ func (h *ProductHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			"Soporte técnico prioritario",
 		}
 		images = []string{
-			"/static/img/accountableholo/pestaña%20summary%20modo%20obscuro.png",
-			"/static/img/accountableholo/pestaña%20summary%20modo%20claro.png",
-			"/static/img/accountableholo/pestaña%20categorias.png",
-			"/static/img/accountableholo/pestaña%20clientes.png",
-			"/static/img/accountableholo/pestaña%20de%20transacciones.png",
-			"/static/img/accountableholo/pestaña%20sri%20config%20datos%20legales.png",
-			"/static/img/accountableholo/pestaña%20sri%20config%20facturacion.png",
+			"/static/img/accountableholo/pestana_summary_modo_obscuro.png",
+			"/static/img/accountableholo/pestana_summary_modo_claro.png",
+			"/static/img/accountableholo/pestana_categorias.png",
+			"/static/img/accountableholo/pestana_clientes.png",
+			"/static/img/accountableholo/pestana_de_transacciones.png",
+			"/static/img/accountableholo/pestana_sri_config_datos_legales.png",
+			"/static/img/accountableholo/pestana_sri_config_facturacion.png",
 		}
 		isDiscount = true
 		discountPrice = "$59.99"
@@ -60,45 +70,33 @@ func (h *ProductHandler) ServePricing(w http.ResponseWriter, r *http.Request) {
 	productID := chi.URLParam(r, "id")
 	title := "Verith" // Default
 
-	// BASIC
-	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4e2796d6-5976-4613-a096-a1e86d3dda65?enabled=1240057"
-	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/b3497c54-7537-405f-a8b7-93df23abfbc7?enabled=1240020"
-	// PYME
-	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/ca111c39-dd50-481b-bb4e-8b3ec82c8690?enabled=1240479"
-	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/117a8e15-43a0-41f8-bd5e-6fefa01e9da2?enabled=1240480"
-	// CORP
-	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4d70c256-8929-42b0-ad65-5a9248fd7517?enabled=1240476"
-	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/8ec06653-43b4-4dc4-8404-5002993e2058?enabled=1240477"
-
 	if productID == "verith" {
 		title = "Verith"
 	}
 
-	component := pages.Pricing(title, basicMonthly, basicAnnual, pymeMonthly, pymeAnnual, corpMonthly, corpAnnual)
+	component := pages.Pricing(
+		title,
+		VerithBasicMonthlyURL,
+		VerithBasicAnnualURL,
+		VerithPymeMonthlyURL,
+		VerithPymeAnnualURL,
+		VerithCorpMonthlyURL,
+		VerithCorpAnnualURL,
+	)
 	_ = component.Render(r.Context(), w)
 }
 
 func (h *ProductHandler) ServePricingGrid(w http.ResponseWriter, r *http.Request) {
 	isAnnual := r.URL.Query().Get("annual") == "true"
 
-	// BASIC
-	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4e2796d6-5976-4613-a096-a1e86d3dda65?enabled=1240057"
-	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/b3497c54-7537-405f-a8b7-93df23abfbc7?enabled=1240020"
-	// PYME
-	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/ca111c39-dd50-481b-bb4e-8b3ec82c8690?enabled=1240479"
-	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/117a8e15-43a0-41f8-bd5e-6fefa01e9da2?enabled=1240480"
-	// CORP
-	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4d70c256-8929-42b0-ad65-5a9248fd7517?enabled=1240476"
-	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/8ec06653-43b4-4dc4-8404-5002993e2058?enabled=1240477"
-
-	basicLink := basicMonthly
-	pymeLink := pymeMonthly
-	corpLink := corpMonthly
+	basicLink := VerithBasicMonthlyURL
+	pymeLink := VerithPymeMonthlyURL
+	corpLink := VerithCorpMonthlyURL
 
 	if isAnnual {
-		basicLink = basicAnnual
-		pymeLink = pymeAnnual
-		corpLink = corpAnnual
+		basicLink = VerithBasicAnnualURL
+		pymeLink = VerithPymeAnnualURL
+		corpLink = VerithCorpAnnualURL
 	}
 
 	sse := datastar.NewSSE(w, r)
