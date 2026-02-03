@@ -38,10 +38,10 @@ func (h *ContactHandler) HandleSubmit(w http.ResponseWriter, r *http.Request) {
 	err := h.emailService.SendContactForm(signals.Nombre, signals.Email, signals.Mensaje)
 	if err != nil {
 		h.errorLog.Printf("Error sending email: %v", err)
-		// We could show an error fragment here, but showing success is safer for UX 
-        // if we log the failure internally. Or we could send a console error.
-        sse := datastar.NewSSE(w, r)
-        sse.ConsoleError(err)
+		// We could show an error fragment here, but showing success is safer for UX
+		// if we log the failure internally. Or we could send a console error.
+		sse := datastar.NewSSE(w, r)
+		sse.ConsoleError(err)
 	}
 
 	// Respond with Success View
@@ -50,6 +50,6 @@ func (h *ContactHandler) HandleSubmit(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *ContactHandler) ServeForm(w http.ResponseWriter, r *http.Request) {
-    sse := datastar.NewSSE(w, r)
-    sse.ExecuteScript("window.location.reload()")
+	sse := datastar.NewSSE(w, r)
+	sse.ExecuteScript("window.location.reload()")
 }

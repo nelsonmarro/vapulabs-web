@@ -33,18 +33,20 @@ func (h *ProductHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		price = "$39.99"
 		features = []string{
 			"Facturación Electrónica SRI (Normativa Actual)",
+			"Contabilidad Integral (Ingresos y Egresos)",
 			"Acceso completo a todas las funciones",
 			"Sincronización automática con el SRI",
 			"Actualizaciones normativas constantes",
 			"Soporte técnico prioritario",
 		}
 		images = []string{
-			"/static/img/accountableholo/fulllogo.png",
-			"/static/img/accountableholo/swappy-20260106_181602.png",
-			"/static/img/accountableholo/swappy-20260106_181623.png",
-			"/static/img/accountableholo/swappy-20260106_181639.png",
-			"/static/img/accountableholo/swappy-20260106_181700.png",
-			"/static/img/accountableholo/swappy-20260106_181716.png",
+			"/static/img/accountableholo/pestaña%20summary%20modo%20obscuro.png",
+			"/static/img/accountableholo/pestaña%20summary%20modo%20claro.png",
+			"/static/img/accountableholo/pestaña%20categorias.png",
+			"/static/img/accountableholo/pestaña%20clientes.png",
+			"/static/img/accountableholo/pestaña%20de%20transacciones.png",
+			"/static/img/accountableholo/pestaña%20sri%20config%20datos%20legales.png",
+			"/static/img/accountableholo/pestaña%20sri%20config%20facturacion.png",
 		}
 		isDiscount = true
 		discountPrice = "$59.99"
@@ -58,14 +60,15 @@ func (h *ProductHandler) ServePricing(w http.ResponseWriter, r *http.Request) {
 	productID := chi.URLParam(r, "id")
 	title := "Verith" // Default
 
-	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/cbb20457-f455-4733-86c5-0a8cae5b2cdb?enabled=1240067"
-	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/05ee4c14-5ca6-425b-b798-ef0f5eb33085?enabled=1240066"
+	// BASIC
+	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4e2796d6-5976-4613-a096-a1e86d3dda65?enabled=1240057"
+	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/b3497c54-7537-405f-a8b7-93df23abfbc7?enabled=1240020"
 	// PYME
-	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/19af2e66-93f1-4966-b0e6-26852fe96cb1?enabled=1240404"
-	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/cd05a576-94cb-41d8-b1ca-6595f14e346d?enabled=1240412"
+	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/ca111c39-dd50-481b-bb4e-8b3ec82c8690?enabled=1240479"
+	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/117a8e15-43a0-41f8-bd5e-6fefa01e9da2?enabled=1240480"
 	// CORP
-	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/c388e89a-9e0d-4e76-8fb7-772535c61f43?enabled=1240419"
-	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/2585f4e7-e151-4a2f-b20e-5af68e51a0ed?enabled=1240420"
+	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4d70c256-8929-42b0-ad65-5a9248fd7517?enabled=1240476"
+	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/8ec06653-43b4-4dc4-8404-5002993e2058?enabled=1240477"
 
 	if productID == "verith" {
 		title = "Verith"
@@ -79,14 +82,14 @@ func (h *ProductHandler) ServePricingGrid(w http.ResponseWriter, r *http.Request
 	isAnnual := r.URL.Query().Get("annual") == "true"
 
 	// BASIC
-	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/cbb20457-f455-4733-86c5-0a8cae5b2cdb?enabled=1240067"
-	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/05ee4c14-5ca6-425b-b798-ef0f5eb33085?enabled=1240066"
+	basicMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4e2796d6-5976-4613-a096-a1e86d3dda65?enabled=1240057"
+	basicAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/b3497c54-7537-405f-a8b7-93df23abfbc7?enabled=1240020"
 	// PYME
-	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/19af2e66-93f1-4966-b0e6-26852fe96cb1?enabled=1240404"
-	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/cd05a576-94cb-41d8-b1ca-6595f14e346d?enabled=1240412"
+	pymeMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/ca111c39-dd50-481b-bb4e-8b3ec82c8690?enabled=1240479"
+	pymeAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/117a8e15-43a0-41f8-bd5e-6fefa01e9da2?enabled=1240480"
 	// CORP
-	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/c388e89a-9e0d-4e76-8fb7-772535c61f43?enabled=1240419"
-	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/2585f4e7-e151-4a2f-b20e-5af68e51a0ed?enabled=1240420"
+	corpMonthly := "https://naphsoft.lemonsqueezy.com/checkout/buy/4d70c256-8929-42b0-ad65-5a9248fd7517?enabled=1240476"
+	corpAnnual := "https://naphsoft.lemonsqueezy.com/checkout/buy/8ec06653-43b4-4dc4-8404-5002993e2058?enabled=1240477"
 
 	basicLink := basicMonthly
 	pymeLink := pymeMonthly
@@ -100,7 +103,7 @@ func (h *ProductHandler) ServePricingGrid(w http.ResponseWriter, r *http.Request
 
 	sse := datastar.NewSSE(w, r)
 	component := products.PricingGrid(isAnnual, basicLink, pymeLink, corpLink)
-	
+
 	// Send the fragment to replace the pricing grid
 	if err := sse.PatchElementTempl(component, datastar.WithSelectorID("pricing-grid")); err != nil {
 		sse.ConsoleError(err)
